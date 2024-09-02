@@ -1,0 +1,102 @@
+.u-card {
+    background-color: rgb(255, 255, 255);
+    height: 80vh;
+    width: 40vh;
+    border-radius: 10px;
+    margin-top: 10vh;
+    margin-left: 20vh;
+    padding-top: 50px;
+    padding-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card {
+    background-color: rgb(255, 255, 255);
+    height: 45vh;
+    width: 40vh;
+    border-radius: 10px;
+    margin-top: 20vh;
+    margin-left: 20vh;
+    padding-top: 50px;
+    padding-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+input {
+    height: 40px;
+    width: 300px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.i-btn{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(16, 132, 199);
+    color: white;
+    display: block;
+    margin-top: 30px;
+    
+}
+h1{
+    color:rgb(16, 132, 199) ;
+    font-weight: bold;
+}
+.txt{
+    padding-top: 20px;
+}
+p{
+    font-size: 12px;
+    padding-top: 10px;
+}
+.v-card{
+    background-color: rgb(255, 255, 255);
+    height: 35vh;
+    width: 40vh;
+    border-radius: 10px;
+    margin-top: 20vh;
+    margin-left: 20vh;
+    padding-top: 50px;
+    padding-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.s-btn{
+    display: block;
+    width: 34vh;
+    height: 5vh;
+    margin-top: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+}
+.v-btn{
+    display: block;
+    width: 34vh;
+    height: 5vh;
+    margin-top: 10px;
+    background-color: rgb(64, 108, 255);
+    color: white;
+    border: none;
+}
+.f-btn{
+    height: 4vh;
+    width: 20vh;
+    background-color: rgb(64, 108, 255);
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 10px;
+    border-style: n;
+    font-weight: 500;
+    margin-top: 30px;
+}
+a{
+    text-decoration: none;
+}
+.h-card{
+    height:30vh ;
+    width: 30vh;
+    margin-top: 20vh;
+    margin-left: 20vh;
+    padding-top: 110px;
+    padding-left: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
