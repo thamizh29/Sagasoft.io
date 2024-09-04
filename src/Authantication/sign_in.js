@@ -25,7 +25,7 @@ export default function SignIn() {
                 if (user.email_id_verified === "1") {
                     navigate('/dashboard');
                 } else if (user.email_id_verified === "0") {
-                    navigate('/verification');
+                    navigate('/verification',{ state: { email: email } });
                 }
             }
             else {
@@ -33,8 +33,11 @@ export default function SignIn() {
                 navigate('/signup')
             }
         }
-        catch (error) { console.log(error) }
+        catch (error) { console.log(error)
+            window.alert("server error")
+         }
     }
+    sessionStorage.setItem('email', email)
     return (
         <div className="card">
             <h1>LogIn</h1>

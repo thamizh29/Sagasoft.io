@@ -14,7 +14,7 @@ export default function Verification() {
          //Api call to get the data from backend
         try {
             const result = await axios.get(url);
-            if (Number(result.data.message.verification_code) === verify) {
+            if (Number(result.data.message[0].verification_code) === verify) {
          //Verify the code 
                 const result = await axios.post(`http://192.168.1.18:8000/api/method/sagasuite.customer_api.update_email_ID?email_id=${email}`)
                 navigate('/signin')
@@ -35,6 +35,7 @@ export default function Verification() {
             console.log(error)
         }
     }
+    console.log(email)
     return (
         <div className="v-card">
             <h1>Email verification</h1>
