@@ -18,6 +18,48 @@ const items = [
     header: "",
   },
 ];
+const Mailitems = [
+  {
+    src: require("assets/img/theme/MAil.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+  {
+    src: require("assets/img/theme/MAil.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+];
+const Fileitems = [
+  {
+    src: require("assets/img/theme/file.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+  {
+    src: require("assets/img/theme/file-2.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+];
+const Workitems = [
+  {
+    src: require("assets/img/theme/works.jpeg"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+  {
+    src: require("assets/img/theme/works.jpeg"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+];
 
 class Carousel extends React.Component {
   render() {
@@ -51,7 +93,7 @@ class Carousel extends React.Component {
               </Col>
               <Col className="mb-lg-auto" lg="6">
                 <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                  <UncontrolledCarousel items={items} />
+                  <UncontrolledCarousel items={Mailitems} />
                 </div>
               </Col>
             </Row>
@@ -148,12 +190,12 @@ class Carousel extends React.Component {
             <Row style={{ marginTop: '100px' }} className="justify-content-between align-items-center">
               <Col className="mb-lg-auto" lg="6">
                 <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                  <UncontrolledCarousel items={items} />
+                  <UncontrolledCarousel items={Fileitems} />
                 </div>
               </Col>
               <Col className="mb-5 mb-lg-0" lg="5">
                 <h1 className="text-white font-weight-light">
-                  Saga File
+                  Saga Drive
                 </h1>
                 <p className="lead text-white mt-4">
                 Store your documents securely with Saga Files, featuring robust encryption and easy access anytime, anywhere. Your files, your control!
@@ -163,7 +205,7 @@ class Carousel extends React.Component {
                   color="default"
                   href=""
                 >
-                  Get File
+                  Get Drive
                 </Button>
               </Col>
 
@@ -186,24 +228,24 @@ class Carousel extends React.Component {
             <Row style={{ marginTop: '100px' }} className="justify-content-between align-items-center">
               <Col className="mb-5 mb-lg-0" lg="5">
                 <h1 className="text-white font-weight-light">
-                  Photos
+                  Saga Files
                 </h1>
                 <p className="lead text-white mt-4">
-                  Argon Design System comes with four pre-built pages to help
-                  you get started faster. You can change the text and images and
-                  you're good to go.
+                Saga Files provides essential productivity tools: Saga Word for professional document creation, 
+                Saga Presentation for engaging presentations, 
+                and Saga Spreadsheet for effective data management and analysis.
                 </p>
                 <Button
                   className="btn-white mt-4"
                   color="default"
                   href=""
                 >
-                  Get photos
+                  Get works
                 </Button>
               </Col>
               <Col className="mb-lg-auto" lg="6">
                 <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                  <UncontrolledCarousel items={items} />
+                  <UncontrolledCarousel items={Workitems} />
                 </div>
               </Col>
             </Row>
@@ -230,19 +272,18 @@ class Carousel extends React.Component {
               </Col>
               <Col className="mb-5 mb-lg-0" lg="5">
                 <h1 className="text-white font-weight-light">
-                  Activity
+                  Calendar
                 </h1>
                 <p className="lead text-white mt-4">
-                  Argon Design System comes with four pre-built pages to help
-                  you get started faster. You can change the text and images and
-                  you're good to go.
+                Stay organized with Saga Calendar, your smart planning tool that ensures your schedule is secure and private. Make time work for you!
+
                 </p>
                 <Button
                   className="btn-white mt-4"
                   color="default"
                   href=""
                 >
-                  Get activity
+                  Get calendar
                 </Button>
               </Col>
 

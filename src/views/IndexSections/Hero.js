@@ -35,8 +35,7 @@ class Hero extends React.Component {
                       style={{ width: "1000px" }}
                     />
                     <p style={{marginTop:'50px'}} className="lead text-white">
-                      A beautiful Design System for Bootstrap 4. It's Free and
-                      Open Source.
+                     Secure workspace software that protects your privacy with ours.
                     </p>
                     <div className="btn-wrapper mt-5">
                       <Button
@@ -45,21 +44,10 @@ class Hero extends React.Component {
                         style={{width:'180px'}}
                         href="https://dash.sagasoft.io/sagasuite/signup"
                         size="lg"
+                        target="_blank"
                       >
                         <span className="btn-inner--text">Create account</span>
                       </Button>{" "}
-                      <Button
-                        className="btn-icon mb-3 mb-sm-0"
-                        color="transparent"
-                        style={{border:'1px solid white',
-                          width:'140px'
-                        }}
-                        href="https://dash.sagasoft.io/sagasuite/signin"
-                        size="lg"
-                        target="_blank"
-                      >
-                        <span className="btn-inner text-white">Login</span>
-                      </Button>
                     </div>
                   </Col>
                 </Row>
@@ -83,6 +71,7 @@ class Hero extends React.Component {
             </div>
           </section>
         </div>
+        
       </>
     );
   }

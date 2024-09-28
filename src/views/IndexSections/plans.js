@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import {
     Card,
     Container,
@@ -9,10 +10,11 @@ import {
     Button,
 } from "reactstrap";
 
-export default function Plans() {
+// Use forwardRef to allow the parent to access this component's ref
+const Plans = forwardRef((props, ref) => {
     return (
         <>
-            <Container style={{ marginTop: '100px' }} className="container-lg">
+            <Container ref={ref} style={{ marginTop: '100px' }} className="container-lg" ref={ref}>
                 <center><h1>Saga Suite Plans</h1></center>
 
                 <Row xs={1} sm={2} md={3} className="g-4 mt-5">
@@ -21,7 +23,10 @@ export default function Plans() {
                             <CardBody className="text-center">
                                 <CardTitle>Premium</CardTitle>
                                 <CardText>This is the mail service</CardText>
-                                <Button color="primary">Premium</Button>
+                                <Button color="primary"
+                                 href="https://dash.sagasoft.io/sagasuite/signup"
+                                target="_blank"
+                                >Premium</Button>
                             </CardBody>
                         </Card>
                     </Col>
@@ -31,7 +36,10 @@ export default function Plans() {
                             <CardBody className="text-center">
                                 <CardTitle>Standard</CardTitle>
                                 <CardText>This is the talk service</CardText>
-                                <Button color="success">Standard</Button>
+                                <Button color="success"
+                                href="https://dash.sagasoft.io/sagasuite/signup"
+                                target="_blank"
+                                >Standard</Button>
                             </CardBody>
                         </Card>
                     </Col>
@@ -41,13 +49,17 @@ export default function Plans() {
                             <CardBody className="text-center">
                                 <CardTitle>Premium Plus</CardTitle>
                                 <CardText>This is the file service</CardText>
-                                <Button color="primary">Premium Plus</Button>
+                                <Button color="primary"
+                                 href="https://dash.sagasoft.io/sagasuite/signup"
+                                target="_blank"
+                                >Premium Plus</Button>
                             </CardBody>
                         </Card>
                     </Col>
                 </Row>
             </Container>
-
         </>
-    )
-}
+    );
+});
+
+export default Plans;
