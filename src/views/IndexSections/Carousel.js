@@ -60,6 +60,34 @@ const Workitems = [
     header: "",
   },
 ];
+const chatsitems = [
+  {
+    src: require("assets/img/theme/chat.jpeg"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+  {
+    src: require("assets/img/theme/chat.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+];
+const Calendaritems = [
+  {
+    src: require("assets/img/theme/calender.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+  {
+    src: require("assets/img/theme/calender.png"),
+    altText: "",
+    caption: "",
+    header: "",
+  },
+];
 
 class Carousel extends React.Component {
   render() {
@@ -168,7 +196,7 @@ class Carousel extends React.Component {
               </Col>
               <Col className="mb-lg-auto" lg="6">
                 <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                  <UncontrolledCarousel items={items} />
+                  <UncontrolledCarousel items={chatsitems} />
                 </div>
               </Col>
             </Row>
@@ -267,7 +295,7 @@ class Carousel extends React.Component {
             <Row style={{ marginTop: '100px' }} className="justify-content-between align-items-center">
               <Col className="mb-lg-auto" lg="6">
                 <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                  <UncontrolledCarousel items={items} />
+                  <UncontrolledCarousel items={Calendaritems} />
                 </div>
               </Col>
               <Col className="mb-5 mb-lg-0" lg="5">
