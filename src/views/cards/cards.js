@@ -3,6 +3,8 @@ import { Container, Row, Col, Card } from "reactstrap";
 
 export default function AboutUs() {
   return (
+    <div>
+      <section id="about">
     <Container
       style={{ marginTop: '250px', textAlign: 'center' }} // Center the text
       className="container-lg d-flex flex-column align-items-center"
@@ -30,5 +32,7 @@ export default function AboutUs() {
         </Col>
       </Row>
     </Container>
+    </section>
+    </div>
   );
 }

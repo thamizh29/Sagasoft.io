@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
+import { sectionIds } from "./selectionId";
 import {
   Button,
   UncontrolledCollapse,
@@ -11,17 +12,10 @@ import {
   NavItem,
   Nav,
   Container,
-  Modal,
-  CardBody,
-  CardTitle,
-  CardText,
-  Card
 } from "reactstrap";
 
 const DemoNavbar = () => {
   const [collapseClasses, setCollapseClasses] = useState("");
-  const [collapseOpen, setCollapseOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false); // Modal state
 
   useEffect(() => {
     const headroom = new Headroom(document.getElementById("navbar-main"));
@@ -37,9 +31,54 @@ const DemoNavbar = () => {
     setCollapseClasses("");
   };
 
-  const toggleModal = () => {
-    setModalOpen(!modalOpen); // Toggle modal visibility
+  const [activeLink, setActiveLink] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  //Function to smoothly scroll to a section by its ID
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      //Adjust the margin Top value as needed
+      const marginTop = 0;
+      const scrollToY =
+        element.getBoundingClientRect().top + window.scrollY - marginTop;
+      window.scrollTo({ top: scrollToY, behavior: "smooth" });
+    }
   };
+
+  //Function to determine the active section while scrolling
+  const determineActiveSection = () => {
+    for (let i = sectionIds.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sectionIds[i]);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          //Set the active link based on the section ID
+          setActiveLink(sectionIds[i]);
+          break;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+      //Call the function to determine the active section while scrolling
+      determineActiveSection();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    //Remove the scroll event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -73,7 +112,7 @@ const DemoNavbar = () => {
                     <Link to="/">
                       <img
                         alt="..."
-                        src={require("assets/img/brand/argon-react.png")}
+                        src={require("assets/img/brand/logo.png")}
                       />
                     </Link>
                   </Col>
@@ -87,18 +126,18 @@ const DemoNavbar = () => {
               </div>
               <Nav className="align-items-lg-center ml-lg-auto" navbar>
                 <NavItem className="navbar-nav-hover align-items-lg-center">
-                  <span className="text-white ml-1">Home</span>
+                  <span className="text-white ml-1" onClick={() => scrollToSection("home")}>Home</span>
                 </NavItem>
                 <NavItem className="d-none d-lg-block ml-lg-3">
-                  <span className="text-white ml-1">Products</span>
+                  <span className="text-white ml-1" onClick={() => scrollToSection("products")}>Products</span>
                 </NavItem>
                 <NavItem className="d-none d-lg-block ml-lg-3">
-                  <span className="text-white ml-1" onClick={toggleModal}>
+                  <span className="text-white ml-1" onClick={() => scrollToSection("price")}>
                     Pricing
                   </span>
                 </NavItem>
                 <NavItem className="d-none d-lg-block ml-lg-3">
-                  <span className="text-white ml-1">About</span>
+                  <span className="text-white ml-1" onClick={() => scrollToSection("about")}>About</span>
                 </NavItem>
                 <NavItem className="d-none d-lg-block ml-lg-3">
                   <span className="text-white ml-1">Contact</span>
@@ -126,105 +165,6 @@ const DemoNavbar = () => {
           </Container>
         </Navbar>
       </header>
-
-      {/* Modal Implementation */}
-      <Modal size="lg" isOpen={modalOpen} toggle={toggleModal}>
-        <div className="modal-header">
-          <h5 className="modal-title">Pricing</h5>
-          <button
-            aria-label="Close"
-            className="close"
-            type="button"
-            onClick={toggleModal}
-          >
-            <span aria-hidden={true}>×</span>
-          </button>
-        </div>
-        <div className="modal-body">
-        <Row xs={1} sm={2} md={3} className="g-4 mt-5">
-                    <Col>
-                        <Card className="card-lift--hover shadow border-0" style={{ height: "30rem" }}>
-                            <CardBody className="text-center d-flex flex-column justify-content-center align-items-center">
-                                <CardTitle style={{ fontSize: '1.5rem', fontWeight: 'bold', borderBottom: '2px solid #333', paddingBottom: '10px', width: '100%' }}>Basic</CardTitle>
-                                <CardText style={{ fontSize: '1.1rem' }}>
-                                    Features
-                                </CardText>
-                                <ul style={{ listStyle: "none", padding: 0, fontSize: '1rem' }}>
-                                    <li>Total Mail ID</li>
-                                    <li>10</li>
-                                    <li>MailBox Size per user</li>
-                                    <li>3GB</li>
-                                    <li>Total Aliase Mail ID</li>
-                                    <li>30</li>
-                                    <li>Total Drive Size</li>
-                                    <li>150GB</li>
-                                </ul>
-
-                                <Button color="primary"
-                                    href="https://dash.sagasoft.io/sagasuite/signup"
-                                    target="_blank"
-                                >Basic</Button>
-                            </CardBody>
-                        </Card>
-                    </Col>
-
-                    <Col>
-                        <Card className="card-lift--hover shadow border-0" style={{ height: "30rem" }}>
-                            <CardBody className="text-center d-flex flex-column justify-content-center align-items-center">
-                                <CardTitle style={{ fontSize: '1.5rem', fontWeight: 'bold', borderBottom: '2px solid #333', paddingBottom: '10px', width: '100%' }}>Standard</CardTitle>
-                                <CardText style={{ fontSize: '1.1rem' }}>
-                                    Features
-                                </CardText>
-                                <ul style={{ listStyle: "none", padding: 0, fontSize: '1rem' }}>
-                                    <li>Total Mail ID</li>
-                                    <li>30</li>
-                                    <li>MailBox Size per user</li>
-                                    <li>3GB</li>
-                                    <li>Total Aliase Mail ID</li>
-                                    <li>60</li>
-                                    <li>Total Drive Size</li>
-                                    <li>500GB</li>
-                                </ul>
-                                <Button color="success"
-                                    href="https://dash.sagasoft.io/sagasuite/signup"
-                                    target="_blank"
-                                >Standard</Button>
-                            </CardBody>
-                        </Card>
-                    </Col>
-
-                    <Col>
-                        <Card className="card-lift--hover shadow border-0" style={{ height: "30rem" }}>
-                            <CardBody className="text-center d-flex flex-column justify-content-center align-items-center">
-                                <CardTitle style={{ fontSize: '1.5rem', fontWeight: 'bold', borderBottom: '2px solid #333', paddingBottom: '10px', width: '100%' }}>Premium</CardTitle>
-                                <CardText style={{ fontSize: '1.1rem' }}>
-                                    Features
-                                </CardText>
-                                <ul style={{ listStyle: "none", padding: 0, fontSize: '1rem' }}>
-                                    <li>Total Mail ID</li>
-                                    <li>50</li>
-                                    <li>MailBox Size per user</li>
-                                    <li>3GB</li>
-                                    <li>Total Aliase Mail ID</li>
-                                    <li>90</li>
-                                    <li>Total Drive Size</li>
-                                    <li>2TB</li>
-                                </ul>
-                                <Button color="primary"
-                                    href="https://dash.sagasoft.io/sagasuite/signup"
-                                    target="_blank"
-                                >Premium</Button>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-        </div>
-        <div className="modal-footer">
-          <Button color="danger" onClick={toggleModal}>
-            Close
-          </Button>
-        </div>
-      </Modal>
     </>
   );
 };

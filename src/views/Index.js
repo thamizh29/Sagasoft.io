@@ -13,6 +13,7 @@ import Carousel from "./IndexSections/Carousel.js";
 import AppCard from "./cards/cards.js";
 import ImageCard from "./cards/card-2.js";
 import Plans from "./IndexSections/plans.js";
+import PlatFormSupport from "./IndexSections/platform.js";
 
 const Index = () => {
   const mainRef = useRef(null);
@@ -32,6 +33,7 @@ const Index = () => {
       <main ref={mainRef}>
         <Hero />
         <AppCard />
+        <PlatFormSupport />
         <section className="section section-components">
           <Container>
             {/* Additional content can go here if needed */}

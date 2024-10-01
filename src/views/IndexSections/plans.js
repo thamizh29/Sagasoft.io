@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import {
     Card,
     Container,
@@ -11,9 +11,10 @@ import {
 } from "reactstrap";
 
 // Use forwardRef to allow the parent to access this component's ref
-const Plans = forwardRef((props, ref) => {
+const Plans = () => {
     return (
         <>
+        <section id="price">
             <Container style={{ marginTop: '100px' }} className="container-lg" >
                 <center><h1>Saga Suite Plans</h1></center>
 
@@ -95,8 +96,9 @@ const Plans = forwardRef((props, ref) => {
                     </Col>
                 </Row>
             </Container>
+            </section>
         </>
     );
-});
+};
 
 export default Plans;
