@@ -3,8 +3,8 @@ import { Container, Row, Col } from "reactstrap";
 
 export default function PlatFormSupport() {
   return (
-    <Container style={{ marginTop: '50px', textAlign: 'center' }}>
-      <h1 style={{ fontSize: '2rem' }}>Platform Support</h1>
+    <Container style={{ marginTop: '10px', textAlign: 'center' }}>
+      <h1 style={{ fontSize: '1.5rem' }}>Platform Supported</h1>
 
       <Row 
         className="d-flex justify-content-around align-items-center" 

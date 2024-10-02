@@ -6,7 +6,7 @@ export default function AboutUs() {
     <div>
       <section id="about">
     <Container
-      style={{ marginTop: '250px', textAlign: 'center' }} // Center the text
+      style={{ marginTop: '100px', textAlign: 'center' }} // Center the text
       className="container-lg d-flex flex-column align-items-center"
     >
       <h1>About Us</h1>

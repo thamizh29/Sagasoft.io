@@ -32,8 +32,8 @@ const Index = () => {
       <DemoNavbar />
       <main ref={mainRef}>
         <Hero />
-        <AppCard />
         <PlatFormSupport />
+        <AppCard />
         <section className="section section-components">
           <Container>
             {/* Additional content can go here if needed */}
